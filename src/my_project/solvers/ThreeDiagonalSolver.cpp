@@ -7,7 +7,7 @@
 namespace Slae::Solver {
     double *ThreeDiagonalSolver::solveThreeDiagonal(const Slae::Matrix::ThreeDiagonalMatrix &matrix,
                                                     const double* col) {
-        long n = matrix.size_;
+        unsigned long n = matrix.data_.size() / 3;
         auto result = new double[n];
         auto gammas = new double[n];
         auto betas = new double[n];
