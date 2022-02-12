@@ -11,7 +11,8 @@
 namespace Slae::Solver {
     class ThreeDiagonalSolver {
     public:
-        static double *solveThreeDiagonal(const Slae::Matrix::ThreeDiagonalMatrix &matrix, const double* col);
+        static std::vector<double> solveThreeDiagonal
+        (const Slae::Matrix::ThreeDiagonalMatrix &matrix, const std::vector<double>& col);
     };
 }
 

@@ -5,12 +5,12 @@
 #include "ThreeDiagonalSolver.hpp"
 
 namespace Slae::Solver {
-    double *ThreeDiagonalSolver::solveThreeDiagonal(const Slae::Matrix::ThreeDiagonalMatrix &matrix,
-                                                    const double* col) {
+    std::vector<double> ThreeDiagonalSolver::solveThreeDiagonal(const Slae::Matrix::ThreeDiagonalMatrix &matrix,
+                                                    const std::vector<double>& col) {
         unsigned long n = matrix.data_.size() / 3;
-        auto result = new double[n];
-        auto gammas = new double[n];
-        auto betas = new double[n];
+        std::vector<double> result(n);
+        std::vector<double> gammas(n);
+        std::vector<double> betas(n);
         gammas[0] = -matrix(0, 2) / matrix(0, 1);
         betas[0] = col[0] / matrix(0, 1);
 

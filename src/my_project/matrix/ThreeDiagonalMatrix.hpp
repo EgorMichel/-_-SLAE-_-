@@ -13,7 +13,7 @@
 namespace Slae::Matrix {
     class ThreeDiagonalMatrix {
     public:
-        std::vector<double>data_;
+        std::vector<double> data_;
         explicit ThreeDiagonalMatrix(unsigned size);
         static ThreeDiagonalMatrix Zero (unsigned size);
 
