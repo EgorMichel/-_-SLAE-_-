@@ -6,22 +6,20 @@
 
 namespace Slae::Matrix {
 
-    ThreeDiagonalMatrix::ThreeDiagonalMatrix(unsigned size) : size_(size) {
-        data_ = new double[3 * size]; // first and last elements are always equal to zero (cuz 3n-2 elements are applied)
-    }
+    ThreeDiagonalMatrix::ThreeDiagonalMatrix(unsigned size) : data_(3 * size) {}
 
     ThreeDiagonalMatrix ThreeDiagonalMatrix::Zero (unsigned size){
         ThreeDiagonalMatrix result(size);
-        std::fill(result.data_, result.data_ + size * 3, 0);
+        std::fill(result.data_.begin(), result.data_.end(), 0);
         return result;
     }
 
     double &ThreeDiagonalMatrix::operator()(unsigned i, unsigned j) {
 #ifndef NDEBUG
-        if (i >= size_) {
+        if (i >= data_.size() / 3) {
             std::stringstream buff;
             buff << "Index i overwhelm matrix size! Got: " << i << ". Matrix size: "
-                 << size_ << ". File:" << __FILE__ << ". String: " << __LINE__;
+                 << data_.size() / 3 << ". File:" << __FILE__ << ". String: " << __LINE__;
             throw SlaeBaseExceptionCpp(buff.str());
         }
         if (j > 2) {
@@ -35,10 +33,10 @@ namespace Slae::Matrix {
 
     const double &ThreeDiagonalMatrix::operator()(unsigned i, unsigned j) const {
 #ifndef NDEBUG
-    if (i >= size_) {
+    if (i >= data_.size() / 3) {
         std::stringstream buff;
         buff << "Index i overwhelm matrix size! Got: " << i << ". Matrix size: "
-             << size_ << ". File:" << __FILE__ << ". String: " << __LINE__;
+             << data_.size() / 3 << ". File:" << __FILE__ << ". String: " << __LINE__;
         throw SlaeBaseExceptionCpp(buff.str());
     }
     if (j > 2) {

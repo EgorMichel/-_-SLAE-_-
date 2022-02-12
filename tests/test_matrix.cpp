@@ -18,7 +18,7 @@ Slae::Matrix::ThreeDiagonalMatrix matrix_fill(unsigned size) {
 }
 
 void check(Slae::Matrix::ThreeDiagonalMatrix matrix){
-    for (unsigned i = 0; i < matrix.size_; ++i){
+    for (unsigned i = 0; i < matrix.data_.size() / 3; ++i){
         if (matrix.data_[i * 3] != i or matrix.data_[i * 3 + 1] != i or matrix.data_[i * 3 + 2] != i){
             throw Slae::SlaeBaseExceptionCpp("Hi");
         }

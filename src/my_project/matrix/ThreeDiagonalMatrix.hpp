@@ -9,13 +9,11 @@
 
 #include <vector>
 #include <sstream>
-#include <array>
 
 namespace Slae::Matrix {
     class ThreeDiagonalMatrix {
     public:
-        double* data_;
-        long size_;
+        std::vector<double> data_;
         explicit ThreeDiagonalMatrix(unsigned size);
         static ThreeDiagonalMatrix Zero (unsigned size);
 

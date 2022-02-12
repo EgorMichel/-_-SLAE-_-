@@ -17,10 +17,10 @@ void check (){
     A(3, 0) = 11; A(3, 1) = 3; A(3, 2) = 5;
     A(4, 0) = -4; A(4, 1) = 13;
 
-    double col[5] = {14, -7, 2, 1, 3};
+    std::vector<double> col = {14, -7, 2, 1, 3};
 
-    double* X = Slae::Solver::ThreeDiagonalSolver::solveThreeDiagonal(A, col);
-    double eps = 10e-4;
+    std::vector<double> X = Slae::Solver::ThreeDiagonalSolver::solveThreeDiagonal(A, col);
+    double eps = 10e-6;
 
 //    for (int i = 0; i < 5; i++){
 //        std::cout << X[i] << ' ';
